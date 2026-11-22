@@ -69,7 +69,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'education', 'contact']
+      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'education', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -175,7 +175,7 @@ function App() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {['home', 'about', 'skills', 'projects', 'experience', 'education', 'contact'].map((item) => (
+              {['home', 'about', 'experience', 'projects', 'skills', 'education', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -214,7 +214,7 @@ function App() {
             className="md:hidden bg-background border-t"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {['home', 'about', 'skills', 'projects', 'experience', 'education', 'contact'].map((item) => (
+              {['home', 'about', 'experience', 'projects', 'skills', 'education', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -229,7 +229,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section id="home" className="pt-28 pb-16 flex items-center justify-center relative overflow-hidden">
         <motion.div 
           style={{ y }}
           className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20"
@@ -244,14 +244,14 @@ function App() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="h-1 w-16 bg-gradient-to-r from-primary to-secondary mx-auto mb-8 rounded-full"
+            className="h-1 w-16 bg-gradient-to-r from-primary to-secondary mx-auto mb-5 rounded-full"
           />
           
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent"
+            className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent"
           >
             Venkata Karthik Sai Mariserla
           </motion.h1>
@@ -260,14 +260,14 @@ function App() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-1 w-16 bg-gradient-to-r from-secondary to-primary mx-auto mb-8 rounded-full"
+            className="h-1 w-16 bg-gradient-to-r from-secondary to-primary mx-auto mb-5 rounded-full"
           />
           
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-2xl font-light text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-base md:text-xl font-light text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed"
           >
             Software Engineer at Juspay building AI-agent automation with engineer approval built in, RAG pipelines, and Python/FastAPI services
           </motion.p>
@@ -284,24 +284,6 @@ function App() {
             <Button size="lg" variant="outline" onClick={() => scrollToSection('contact')} className="px-8 py-6 text-base">
               Get In Touch
             </Button>
-          </motion.div>
-          
-          {/* Scroll indicator */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="absolute -bottom-28 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="flex flex-col items-center"
-            >
-              <div className="w-6 h-10 border-2 border-muted-foreground rounded-full p-2">
-                <div className="w-1 h-2 bg-muted-foreground rounded-full mx-auto" />
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -379,6 +361,158 @@ function App() {
                 </Button>
               </a>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-4 bg-accent/50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Hands-on experience in payments infrastructure and banking technology
+            </p>
+          </motion.div>
+
+          <div className="space-y-16 relative pb-20">
+            {/* Continuous curved line spanning all experiences */}
+            <div className="absolute left-8 top-0 bottom-0 pointer-events-none -z-10 h-full">
+              <svg width="256" height="100%" viewBox="0 0 256 2000" className="stroke-foreground/40 w-full h-full" preserveAspectRatio="none">
+                <path
+                  d="M 128 0 Q 20 75, 128 150 Q 236 225, 128 300 Q 20 375, 128 450 Q 236 525, 128 600 Q 20 675, 128 750 Q 236 825, 128 900 Q 20 975, 128 1050 Q 236 1125, 128 1200 Q 20 1275, 128 1350 Q 236 1425, 128 1500 Q 20 1575, 128 1650 Q 236 1725, 128 1800 Q 20 1875, 128 1950 Q 236 1975, 128 2000"
+                  fill="none"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+
+            {/* Experience cards */}
+            {experience.map((exp, index) => (
+              <div key={exp.title} className="relative z-10">
+                <motion.div
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <div className={`flex flex-col ${exp.image ? 'md:flex-row' : ''} gap-6 items-stretch`}>
+                    <Card className="flex-1">
+                      <CardHeader>
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                          <div>
+                            <CardTitle className="flex items-center">
+                              <Briefcase className="w-5 h-5 mr-2 text-primary" />
+                              {exp.title}
+                            </CardTitle>
+                            <CardDescription className="text-lg font-medium">{exp.company}</CardDescription>
+                          </div>
+                          <Badge variant="outline" className="mt-2 md:mt-0">
+                            <Calendar className="w-3 h-3 mr-1" />
+                            {exp.duration}
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground mb-4">{exp.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.achievements.map((achievement) => (
+                            <Badge key={achievement} variant="secondary">{achievement}</Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                    {exp.image && (
+                      <div className="md:w-64 flex-shrink-0">
+                        <img 
+                          src={exp.image} 
+                          alt={`${exp.company} - ${exp.title}`}
+                          className="w-full h-64 object-cover rounded-lg shadow-lg"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              RAG, vector search built from scratch, and full-stack AI applications
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="text-lg">{project.title}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <Badge key={tech} variant="secondary">{tech}</Badge>
+                      ))}
+                    </div>
+                    
+                    <div className="space-y-2">
+                      {project.achievements.map((achievement, i) => (
+                        <div key={i} className="flex items-center text-sm text-muted-foreground">
+                          <Award className="w-3 h-3 mr-2 text-primary" />
+                          {achievement}
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-2 pt-4">
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="flex-1"
+                        onClick={() => window.open(project.github, '_blank')}
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                      {project.website && (
+                        <Button 
+                          size="sm" 
+                          className="flex-1"
+                          onClick={() => window.open(project.website, '_blank')}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -486,158 +620,6 @@ function App() {
                 </CardContent>
               </Card>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              RAG, vector search built from scratch, and full-stack AI applications
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-              >
-                <Card className="h-full hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <CardTitle className="text-lg">{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">{tech}</Badge>
-                      ))}
-                    </div>
-                    
-                    <div className="space-y-2">
-                      {project.achievements.map((achievement, i) => (
-                        <div key={i} className="flex items-center text-sm text-muted-foreground">
-                          <Award className="w-3 h-3 mr-2 text-primary" />
-                          {achievement}
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="flex gap-2 pt-4">
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        className="flex-1"
-                        onClick={() => window.open(project.github, '_blank')}
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                      {project.website && (
-                        <Button 
-                          size="sm" 
-                          className="flex-1"
-                          onClick={() => window.open(project.website, '_blank')}
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section id="experience" className="py-20 px-4 bg-accent/50">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Hands-on experience in payments infrastructure and banking technology
-            </p>
-          </motion.div>
-
-          <div className="space-y-16 relative pb-20">
-            {/* Continuous curved line spanning all experiences */}
-            <div className="absolute left-8 top-0 bottom-0 pointer-events-none -z-10 h-full">
-              <svg width="256" height="100%" viewBox="0 0 256 2000" className="stroke-foreground/40 w-full h-full" preserveAspectRatio="none">
-                <path
-                  d="M 128 0 Q 20 75, 128 150 Q 236 225, 128 300 Q 20 375, 128 450 Q 236 525, 128 600 Q 20 675, 128 750 Q 236 825, 128 900 Q 20 975, 128 1050 Q 236 1125, 128 1200 Q 20 1275, 128 1350 Q 236 1425, 128 1500 Q 20 1575, 128 1650 Q 236 1725, 128 1800 Q 20 1875, 128 1950 Q 236 1975, 128 2000"
-                  fill="none"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-
-            {/* Experience cards */}
-            {experience.map((exp, index) => (
-              <div key={exp.title} className="relative z-10">
-                <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <div className={`flex flex-col ${exp.image ? 'md:flex-row' : ''} gap-6 items-stretch`}>
-                    <Card className="flex-1">
-                      <CardHeader>
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                          <div>
-                            <CardTitle className="flex items-center">
-                              <Briefcase className="w-5 h-5 mr-2 text-primary" />
-                              {exp.title}
-                            </CardTitle>
-                            <CardDescription className="text-lg font-medium">{exp.company}</CardDescription>
-                          </div>
-                          <Badge variant="outline" className="mt-2 md:mt-0">
-                            <Calendar className="w-3 h-3 mr-1" />
-                            {exp.duration}
-                          </Badge>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground mb-4">{exp.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.achievements.map((achievement) => (
-                            <Badge key={achievement} variant="secondary">{achievement}</Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                    {exp.image && (
-                      <div className="md:w-64 flex-shrink-0">
-                        <img 
-                          src={exp.image} 
-                          alt={`${exp.company} - ${exp.title}`}
-                          className="w-full h-64 object-cover rounded-lg shadow-lg"
-                        />
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
