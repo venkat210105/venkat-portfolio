@@ -34,7 +34,6 @@ import {
 import profilePic from './assets/profilepic.jpg'
 import juspayImage from './assets/juspay_venkat.jpg'
 import dbsImage from './assets/dbs_venkat.jpg'
-import steelplantImage from './assets/steelplant_venkat.jpg'
 import resumePdf from './assets/venkat_resume_sysdev.pdf'
 import './App.css'
 
@@ -103,66 +102,60 @@ function App() {
   }
 
   const skills = {
-    languages: ['Java', 'JavaScript', 'Python', 'C'],
-    webDevelopment: ['Node.js', 'Django', 'HTML5', 'CSS3', 'ReactJS', 'Bootstrap'],
-    frameworks: ['SpringBoot', 'Express.js', 'Maven', 'Gradle', 'Jenkins', 'Vercel'],
-    databases: ['MySQL', 'MongoDB', 'Amazon RDS'],
-    cloudDevOps: ['AWS (EC2, S3, RDS)', 'Git', 'GitHub', 'CI/CD'],
-    apis: ['REST API', 'OAuth 2.0', 'Instagram Graph API'],
-    testing: ['JUnit', 'PyTest', 'Selenium'],
-    ai: ['Whisper AI', 'NLP', 'CNN', 'TensorFlow']
+    languages: ['Python', 'Java', 'JavaScript', 'SQL'],
+    backend: ['FastAPI', 'Django', 'Spring Boot', 'REST APIs', 'MongoDB', 'MySQL'],
+    cloudDevOps: ['AWS (EC2, S3, RDS)', 'Docker', 'Jenkins', 'GitHub Actions', 'Grafana', 'Git/GitHub'],
+    practices: ['Automated Testing', 'Code Reviews', 'Human-in-the-loop Controls', 'Technical Documentation', 'Agile/Scrum'],
+    genai: ['RAG', 'Embeddings (bge-small)', 'Vector Databases', 'Semantic Search', 'LLM Answer Generation', 'Prompt Engineering', 'AI Agents', 'LangChain', 'Hugging Face'],
+    ml: ['scikit-learn', 'TensorFlow', 'PyTorch', 'Model Training & Evaluation']
   }
 
   const projects = [
     {
-      title: 'Social Media Data Fetcher',
-      description: 'Built a scalable media processing pipeline to fetch, classify, and manage multimedia files from social platforms. Applied NLP techniques for automated metadata extraction and leveraged AWS S3 for scalable storage, reducing manual cataloging efforts by 40%.',
-      technologies: ['Node.js', 'Whisper AI', 'AWS (EC2, S3)', 'MySQL'],
-      github: 'https://github.com/venkat210105/social-media-data-fetcher',
-      achievements: ['40% reduction in manual cataloging', '100+ media files processed daily', 'Real-time API integration']
+      title: 'RAG over a Codebase',
+      description: 'Retrieval-augmented generation pipeline that answers questions about my own codebase: local bge-small embeddings, retrieval served by the vector database I built from scratch, and an LLM answer step grounded in the retrieved code.',
+      technologies: ['Python', 'FastAPI', 'bge-small', 'HNSW', 'LLM'],
+      github: 'https://github.com/venkat210105',
+      achievements: ['Local embeddings, grounded LLM answers', 'HNSW indexing with write-ahead logging', 'Crash recovery without re-embedding']
     },
     {
-      title: 'Social To Product List',
-      description: 'Developed a smart platform to transform unstructured social media content into structured Amazon-style product listings. Achieved 80% reduction in manual entry by incorporating content parsing and keyword extraction.',
-      technologies: ['ReactJS', 'Node.js', 'Whisper AI', 'AWS (EC2, S3, RDS)'],
-      github: 'https://github.com/venkat210105/social-to-product-list',
-      website: 'https://social-to-product-list.vercel.app',
-      achievements: ['80% reduction in manual entry', 'Responsive UI design', 'AWS scalability']
+      title: 'Vector Database (From Scratch)',
+      description: 'Single-node vector database with flat and HNSW indexes behind a FastAPI REST API, benchmarked against faiss-cpu.',
+      technologies: ['Python', 'FastAPI', 'NumPy', 'HNSW', 'Write-Ahead Logging'],
+      github: 'https://github.com/venkat210105/vector',
+      achievements: ['25–40% faster queries than faiss-cpu', '100% recall@10 after tombstone deletion', 'Flat and HNSW indexes']
     },
     {
-      title: 'AgriCure - Plant Disease Detection',
-      description: 'Designed an AI-powered web application to identify plant diseases using a custom CNN model. Developed modular architecture with Django REST backend and ReactJS frontend.',
-      technologies: ['Django', 'ReactJS', 'TensorFlow', 'MongoDB'],
-      github: 'https://github.com/venkat210105/agricure-plant-disease-detection',
-      website: 'https://agricure-plant-disease.vercel.app',
-      achievements: ['92% accuracy with CNN model', 'AI-driven diagnosis', 'Full-stack architecture']
+      title: 'DBS Feedback System',
+      description: 'Full-stack feedback application (Spring Boot + REST backend, React frontend) with Hugging Face sentiment classification and Google OAuth 2.0 and Calendar API for auto-scheduling, deployed on Docker/EC2.',
+      technologies: ['Java', 'Spring Boot', 'Python', 'React', 'Hugging Face', 'Google OAuth 2.0', 'Docker', 'AWS EC2'],
+      github: 'https://github.com/venkat210105/dbs_devops2',
+      achievements: ['Sentiment classification with Hugging Face', 'Google OAuth 2.0 & Calendar auto-scheduling', 'Dockerized deploy on AWS EC2']
     }
   ]
 
   const experience = [
     {
-      title: 'Software Development Engineer Test (SDET) Intern',
+      title: 'Software Development Engineer in Test (SDET)',
       company: 'Juspay Technologies',
       duration: 'February 2026 – Present',
-      description: 'Contributing to high-scale payment systems through backend API validation, CI/CD pipeline optimization, and automation engineering. Focusing on distributed systems reliability and observability.',
-      achievements: ['Backend API workflows for payment systems', 'Jenkins pipeline debugging & CI/CD optimization', 'Selenium & Cypress automation tools', 'Distributed systems validation', 'Log monitoring & issue resolution'],
+      description: 'Building AI-agent test automation and record/replay testing for Hyperswitch, Juspay\'s open-source payments platform, with engineer approval built into every stage.',
+      achievements: [
+        'Five-agent automation pipeline with human approval: coverage ~80% → ~95–97%',
+        'Proxy-based (MITM) record/replay testing: connector coverage 8 → 25',
+        'Cypress suite: 90+ test suites across 50+ connectors',
+        'CI/CD health across GitHub Actions & Jenkins, debugged with Grafana',
+        '600+ GitHub contributions in the past year'
+      ],
       image: juspayImage
     },
     {
-      title: 'AI DevOps Engineer Apprentice',
-      company: 'DBS Tech',
+      title: 'AI DevOps Intern',
+      company: 'DBS Tech (DBS Bank)',
       duration: 'June 2025 – February 2026',
-      description: 'Advanced cloud-native microservices deployment and CI/CD automation at scale. Built production-ready pipelines and containerized services, reducing environment setup time by 70%. Implemented RESTful APIs with OAuth 2.0 security.',
-      achievements: ['5+ fintech microservices on AWS EC2/S3', '3+ Jenkins & Docker CI/CD pipelines', '70% workflow automation', 'Sub-3-minute service deployment', 'REST API with OAuth 2.0 integration'],
+      description: 'Implemented a chatbot for the product procurement workflow and maintained Jenkins CI/CD pipelines for sandbox environments.',
+      achievements: ['Procurement workflow chatbot', 'Jenkins CI/CD for sandbox environments', 'Python regex scripts for ETL-style extraction'],
       image: dbsImage
-    },
-    {
-      title: 'Project Trainee',
-      company: 'Visakhapatnam Steel Plant (RINL)',
-      duration: 'May 2024 – June 2024',
-      description: 'Developed a hotel booking web app using Java Servlets and Web 2.0 technologies. Focused on full-stack development and UI/UX design.',
-      achievements: ['Full-stack development', 'Java Servlets', 'UI/UX design'],
-      image: steelplantImage
     }
   ]
 
@@ -177,7 +170,7 @@ function App() {
               animate={{ opacity: 1, x: 0 }}
               className="text-xl font-bold"
             >
-              Venkata Karthik Sai
+              Venkata Karthik Sai Mariserla
             </motion.div>
             
             {/* Desktop Navigation */}
@@ -260,7 +253,7 @@ function App() {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent"
           >
-            Mariserla Venkata Karthik Sai
+            Venkata Karthik Sai Mariserla
           </motion.h1>
           
           <motion.div
@@ -276,7 +269,7 @@ function App() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg md:text-2xl font-light text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Aspiring Software Engineer passionate about building AI-powered digital workplace tools and scalable backend systems
+            Software Engineer at Juspay building AI-agent automation with engineer approval built in, RAG pipelines, and Python/FastAPI services
           </motion.p>
           
           <motion.div 
@@ -324,7 +317,7 @@ function App() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Passionate about innovation and technology, I bring expertise in AI integration and cloud-native development
+              AI-agent automation, retrieval-augmented generation, and reliable testing for payments infrastructure
             </p>
           </motion.div>
 
@@ -336,7 +329,7 @@ function App() {
             >
               <img 
                 src={profilePic} 
-                alt="Venkata Karthik Sai" 
+                alt="Venkata Karthik Sai Mariserla" 
                 className="w-full max-w-md mx-auto rounded-lg shadow-lg"
               />
             </motion.div>
@@ -348,27 +341,28 @@ function App() {
               className="space-y-6"
             >
               <p className="text-lg leading-relaxed">
-                I'm an aspiring Software Engineer with proven experience in GenAI integration (Whisper AI, NLP) 
-                and cloud-native development (AWS, Spring Boot). I'm eager to contribute to next-gen servicing 
-                platforms through agile innovation and robust full-stack solutions.
+                I'm a B.Tech graduate (CGPA 8.95/10, 2026) and software engineer at Juspay who builds AI-agent 
+                automation with engineer approval built in, measured by coverage metrics. I built a RAG pipeline 
+                over a codebase, with local embeddings and a vector database written from scratch (HNSW, write-ahead 
+                logging), plus Python and FastAPI REST services. I previously interned at DBS Tech, the technology arm of DBS Bank.
               </p>
               
               <div className="grid grid-cols-4 gap-3">
                 <div className="text-center p-4 bg-accent rounded-lg">
-                  <div className="text-2xl font-bold text-primary">9.08</div>
+                  <div className="text-2xl font-bold text-primary">8.95</div>
                   <div className="text-xs text-muted-foreground">CGPA</div>
                 </div>
                 <div className="text-center p-4 bg-accent rounded-lg">
-                  <div className="text-2xl font-bold text-primary">3+</div>
-                  <div className="text-xs text-muted-foreground">Projects</div>
+                  <div className="text-2xl font-bold text-primary">95%+</div>
+                  <div className="text-xs text-muted-foreground">Test Coverage</div>
                 </div>
                 <div className="text-center p-4 bg-accent rounded-lg">
-                  <div className="text-2xl font-bold text-primary">2+</div>
-                  <div className="text-xs text-muted-foreground">Internships</div>
+                  <div className="text-2xl font-bold text-primary">25</div>
+                  <div className="text-xs text-muted-foreground">Connectors Replayed</div>
                 </div>
                 <div className="text-center p-4 bg-accent rounded-lg">
-                  <div className="text-2xl font-bold text-primary">8+</div>
-                  <div className="text-xs text-muted-foreground">Tech Skills</div>
+                  <div className="text-2xl font-bold text-primary">600+</div>
+                  <div className="text-xs text-muted-foreground">GitHub Contributions</div>
                 </div>
               </div>
 
@@ -436,12 +430,12 @@ function App() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Database className="w-5 h-5 mr-2 text-primary" />
-                    Web & Frameworks
+                    Backend & Databases
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {[...skills.webDevelopment, ...skills.frameworks].slice(0, 6).map((skill) => (
+                    {skills.backend.map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
@@ -458,12 +452,12 @@ function App() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Cloud className="w-5 h-5 mr-2 text-primary" />
-                    Cloud & DevOps
+                    Cloud, DevOps & Practices
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {[...skills.cloudDevOps, ...skills.databases].map((skill) => (
+                    {[...skills.cloudDevOps, ...skills.practices].map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
@@ -480,12 +474,12 @@ function App() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Brain className="w-5 h-5 mr-2 text-primary" />
-                    AI & Testing
+                    Generative AI & ML
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {[...skills.ai, ...skills.testing].map((skill) => (
+                    {[...skills.genai, ...skills.ml].map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
@@ -507,7 +501,7 @@ function App() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Innovative solutions showcasing AI integration, cloud architecture, and full-stack development
+              RAG, vector search built from scratch, and full-stack AI applications
             </p>
           </motion.div>
 
@@ -580,7 +574,7 @@ function App() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Building expertise through hands-on experience in fintech and industrial environments
+              Hands-on experience in payments infrastructure and banking technology
             </p>
           </motion.div>
 
@@ -681,8 +675,8 @@ function App() {
                     <h3 className="font-semibold">Bachelor of Technology in Information Technology</h3>
                     <p className="text-muted-foreground">MLR Institute of Technology, Hyderabad</p>
                     <div className="flex items-center gap-4 mt-2">
-                      <Badge variant="outline">CGPA: 9.08</Badge>
-                      <Badge variant="outline">Expected: 2026</Badge>
+                      <Badge variant="outline">CGPA: 8.95/10</Badge>
+                      <Badge variant="outline">2022 – 2026</Badge>
                     </div>
                   </div>
                 </CardContent>
@@ -761,6 +755,18 @@ function App() {
                 <div className="flex items-center space-x-3">
                   <Linkedin className="w-5 h-5 text-primary" />
                   <span>linkedin.com/in/venkata-karthik-sai-mariserla</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Github className="w-5 h-5 text-primary" />
+                  <a href="https://github.com/venkat210105" target="_blank" rel="noopener noreferrer">github.com/venkat210105</a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Github className="w-5 h-5 text-primary" />
+                  <a href="https://github.com/venkatakarthikm-maker" target="_blank" rel="noopener noreferrer">github.com/venkatakarthikm-maker (Hyperswitch)</a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Code className="w-5 h-5 text-primary" />
+                  <a href="https://leetcode.com/u/venkat210604" target="_blank" rel="noopener noreferrer">leetcode.com/u/venkat210604</a>
                 </div>
               </div>
 
@@ -861,7 +867,7 @@ function App() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2">
             <p className="text-muted-foreground">
-              © 2024 Mariserla Venkata Karthik Sai. Crafted with passion, powered by code.
+              © 2026 Venkata Karthik Sai Mariserla. Crafted with passion, powered by code.
             </p>
             <Rocket className="w-5 h-5 text-foreground" />
           </div>
